@@ -1,5 +1,5 @@
 <?php
-	get_header();
+	getheader();
 ?>
 
 <div id="primary" class="content-area">
@@ -8,18 +8,18 @@
 				
 				while( have_posts()){
 					the_post();
-				 
+				 }
 					
-					the_content();
+					get_template_part( 'content', get_post_format() );
 					
-					
+					mytheme_post_nav();
 			
 					if ( comments_open() || get_comments_number() ) {
 						comments_template();
 					}
 					
-			}
-			get_footer();
+			
+			getfooter();
 			?>
 			
 			

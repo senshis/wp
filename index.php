@@ -6,33 +6,29 @@
 
 get_header(); ?>
 
-<section>
+<content>
 
 <?php 
 
 if ( have_posts() ) {
-	while (have_posts()){ 
-	echo "<article>";
-	the_post(); 
+	while (have_posts()) : the_post(); 
 	the_title();
 	the_time('m/d/y/');
 	if ($post->post_except) { 
 		 echo $post->post_except; 
 		 ?>
-		 <a href="<?php echo the_permalink(); ?>">Read more..</a>
-		 <?php 
-		 echo "</article>";
+		 <a href="<?phpthe_permalink();?>">Read more..</a>
+		 <?php
 	 } else { ?>
 		<p> 
 			<?php the_content(); ?>
-			<a href="<?php echo the_permalink(); ?>">Read more..</a>
-		</p><?php 
-		echo "</article>";
+			<a href="<?phpthe_permalink();?>">Read more..</a>
+		</p><?php
 	}
 		
 	 
 	
-	} // end while
+	endwhile; // end while
 } // end if
 else{
 	echo "There are no posts.";
@@ -42,7 +38,7 @@ else{
 <div class="pagination nav-previous"><?php next_posts_link('Older posts');?></div>
 <div class="pagination nav-next"><?php previous_posts_link('Newer posts');?></div>
 
-</section>
+</content>
 
 <aside>
 <?php if ( is_active_sidebar( 'home_right_1' ) ) : ?>
